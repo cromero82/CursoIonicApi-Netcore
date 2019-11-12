@@ -14,5 +14,17 @@ namespace CursoIonicApi.Services
             dbContext = _dbContext;
         }
 
+        public bool AgregarNoticia(Noticia _noticia)
+        {
+            try
+            {
+                dbContext.Noticia.Add(_noticia);
+                dbContext.SaveChanges();
+                return true;
+            } catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

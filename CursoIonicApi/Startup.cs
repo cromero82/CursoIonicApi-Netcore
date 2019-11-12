@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CursoIonicApi.Model;
+using CursoIonicApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +30,7 @@ namespace CursoIonicApi
         {
             services.AddControllers();
             services.AddDbContext<NoticiasDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("conexionANoticias")));
+            services.AddTransient<NoticiaServices, NoticiaServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
